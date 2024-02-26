@@ -9,14 +9,20 @@ public class Player_AnimatorController : MonoBehaviour
     
     private void OnEnable()
     {
+        GameActions.onAfterGameModeStarted += StartBouncing;
         Controller_BounceCombo.OnSendComboProgression += OnSendComboProgression;
     }
 
     private void OnDisable()
     {
+        GameActions.onAfterGameModeStarted -= StartBouncing;
         Controller_BounceCombo.OnSendComboProgression -= OnSendComboProgression;
     }
 
+    private void StartBouncing()
+    {
+        m_animator.SetTrigger("StartBounce");
+    }
 
     private void OnSendComboProgression(float comboProgression)
     {

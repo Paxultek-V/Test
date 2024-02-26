@@ -12,14 +12,21 @@ public class GameModeController_Runner : GameModeLoader
     protected override void OnEnable()
     {
         Obstacle.OnPlayerHitObstacle += OnPlayerHitObstacle;
+        Player_BouncePlatform.OnFall += OnFall;
     }
 
     private void OnDisable()
     {
         Obstacle.OnPlayerHitObstacle -= OnPlayerHitObstacle;
+        Player_BouncePlatform.OnFall -= OnFall;
     }
     
     private void OnPlayerHitObstacle()
+    {
+        GameActions.EndGameMode?.Invoke();
+    }
+
+    private void OnFall()
     {
         GameActions.EndGameMode?.Invoke();
     }

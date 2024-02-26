@@ -11,7 +11,7 @@ public class Player_BounceInteraction : MonoBehaviour
 
     [SerializeField] protected LayerMask m_effectiveLayer;
     
-    protected Collider[] m_buttonCollider;
+    protected Collider[] m_hitCollider;
     
     private void OnEnable()
     {
@@ -31,14 +31,14 @@ public class Player_BounceInteraction : MonoBehaviour
     
     private void Initialize()
     {
-        m_buttonCollider = new Collider[1];
+        m_hitCollider = new Collider[1];
     }
     
     protected virtual void OnPlayerBounce()
     {
-        Physics.OverlapSphereNonAlloc(transform.position, m_colliderSize, m_buttonCollider, m_effectiveLayer);
+        Physics.OverlapSphereNonAlloc(transform.position, m_colliderSize, m_hitCollider, m_effectiveLayer);
 
-        if (m_buttonCollider[0] == null)
+        if (m_hitCollider[0] == null)
         {
             OnBounceOnNothing?.Invoke();
             return;
@@ -49,12 +49,12 @@ public class Player_BounceInteraction : MonoBehaviour
 
     protected (bool, T) HasElement<T>() where T : MonoBehaviour
     {
-        for (int i = 0; i < m_buttonCollider.Length; i++)
+        for (int i = 0; i < m_hitCollider.Length; i++)
         {
-            if(m_buttonCollider[i] == null)
+            if(m_hitCollider[i] == null)
                 continue;
             
-            T item = m_buttonCollider[i].GetComponent<T>();
+            T item = m_hitCollider[i].GetComponent<T>();
 
             if (item != null)
                 return (true, item);

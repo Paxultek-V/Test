@@ -30,6 +30,7 @@ public class Player_Movement : ModuleBase
         Controller.OnRelease += ResetMovement;
         Boss.OnBossKillPlayer += OnBossKillPlayer;
         Obstacle.OnPlayerHitObstacle += OnPlayerHitObstacle;
+        Player_BouncePlatform.OnFall += OnFall;
         GameActions.onAfterGameModeStarted += EnableMovement;
         Controller_BounceCombo.OnSendComboProgression += ComputeNewSpeed;
     }
@@ -41,6 +42,7 @@ public class Player_Movement : ModuleBase
         Controller.OnRelease -= ResetMovement;
         Boss.OnBossKillPlayer -= OnBossKillPlayer;
         Obstacle.OnPlayerHitObstacle -= OnPlayerHitObstacle;
+        Player_BouncePlatform.OnFall -= OnFall;
         GameActions.onAfterGameModeStarted -= EnableMovement;
         Controller_BounceCombo.OnSendComboProgression -= ComputeNewSpeed;
     }
@@ -69,18 +71,28 @@ public class Player_Movement : ModuleBase
 
     private void OnPlayerHitObstacle()
     {
-        Kill();
+        Kill(default);
     }
     
     private void OnBossKillPlayer()
     {
-        Kill();
+        Kill(default);
     }
 
-    private void Kill()
+    private void OnFall()
+    {
+        Kill(Vector3.down);
+    }
+    
+    private void Kill(Vector3 deathDirection = default)
     {
         m_isAlive = false;
-        m_deadMovementDirection = (Manager_Camera.Instance.Camera.transform.position - transform.position).normalized;
+
+        if (deathDirection == default)
+            m_deadMovementDirection =
+                (Manager_Camera.Instance.Camera.transform.position - transform.position).normalized;
+        else
+            m_deadMovementDirection = deathDirection;
         
         Destroy(gameObject, 2f);
     }

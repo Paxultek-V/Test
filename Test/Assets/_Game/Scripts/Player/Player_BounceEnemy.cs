@@ -7,7 +7,7 @@ public class Player_BounceEnemy : Player_BounceInteraction
     {
         base.BounceInterraction();
         
-        SmallEnemy smallEnemy = m_buttonCollider[0].GetComponent<SmallEnemy>();
+        SmallEnemy smallEnemy = m_hitCollider[0].GetComponent<SmallEnemy>();
 
         if (smallEnemy == null || smallEnemy.IsAlive == false)
             return;

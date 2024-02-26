@@ -5,7 +5,7 @@ public class Player_BounceCannonButton : Player_BounceInteraction
     {
         base.BounceInterraction();
         
-        CannonButton cannonButton = m_buttonCollider[0].GetComponent<CannonButton>();
+        CannonButton cannonButton = m_hitCollider[0].GetComponent<CannonButton>();
 
         if (cannonButton == null || cannonButton.IsActive == false)
         {
