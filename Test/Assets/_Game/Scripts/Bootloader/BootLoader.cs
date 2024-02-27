@@ -8,7 +8,8 @@ using UnityEngine.Serialization;
 public enum GameModes
 {
     ModeBoss,
-    ModeRunner
+    ModeRunner,
+    ModeTempo
 }
 
 public class BootLoader : SerializedMonoBehaviour

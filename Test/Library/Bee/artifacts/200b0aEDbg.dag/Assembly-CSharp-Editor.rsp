@@ -392,6 +392,7 @@
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/Users/valentinmoulard/SmallBeautiful/Repository/2022.3.14f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Users/valentinmoulard/SmallBeautiful/Repository/2022.3.14f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/RetroAesthetics/Shaders/Editor/RetroSkyboxEditor.cs"
 "Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/MobileInput/Scripts/Editor/CrossPlatformInputInitialize.cs"
 -langversion:9.0
 
