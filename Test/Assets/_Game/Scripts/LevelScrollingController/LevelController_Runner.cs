@@ -24,7 +24,6 @@ public class LevelController_Runner : LevelController
     private Vector3 m_spawnPositionBuffer;
 
     private float m_previousSpawnPositionX;
-    private bool m_isActive;
 
     private float m_zSpawnPosition
     {

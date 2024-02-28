@@ -31,6 +31,7 @@ public class Player_Movement : ModuleBase
         Boss.OnBossKillPlayer += OnBossKillPlayer;
         Obstacle.OnPlayerHitObstacle += OnPlayerHitObstacle;
         Player_BouncePlatform.OnFall += OnFall;
+        TempoMistakeController.OnMistakeLimitReached += OnMistakeLimitReached;
         GameActions.onAfterGameModeStarted += EnableMovement;
         Controller_BounceCombo.OnSendComboProgression += ComputeNewSpeed;
     }
@@ -43,6 +44,7 @@ public class Player_Movement : ModuleBase
         Boss.OnBossKillPlayer -= OnBossKillPlayer;
         Obstacle.OnPlayerHitObstacle -= OnPlayerHitObstacle;
         Player_BouncePlatform.OnFall -= OnFall;
+        TempoMistakeController.OnMistakeLimitReached -= OnMistakeLimitReached;
         GameActions.onAfterGameModeStarted -= EnableMovement;
         Controller_BounceCombo.OnSendComboProgression -= ComputeNewSpeed;
     }
@@ -82,6 +84,11 @@ public class Player_Movement : ModuleBase
     private void OnFall()
     {
         Kill(Vector3.down);
+    }
+
+    private void OnMistakeLimitReached()
+    {
+        Kill(default);
     }
     
     private void Kill(Vector3 deathDirection = default)

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    protected bool m_isActive;
+    
     protected virtual void OnEnable()
     {
     }

@@ -10,7 +10,6 @@ public class LevelScrollingController : MonoBehaviour
     [SerializeField] private Transform m_obstacleParent = null;
     [SerializeField] private float m_zSpawnPosition = 50f;
     [SerializeField] private float m_xSpawnPositionStep = 5f;
-    [SerializeField] private float m_spawnCooldown = 1f;
 
     [SerializeField] private List<FloorTile> m_floorTileList = null;
     [SerializeField] private float m_baseScrollingSpeed = 10f;
@@ -109,7 +108,7 @@ public class LevelScrollingController : MonoBehaviour
             return;
 
         m_instantiatedObstacle = Instantiate(m_obstaclePrefab, position, Quaternion.Euler(0f, 180f, 0f),
-            m_enemyParent);
+            m_obstacleParent);
         m_instantiatedObstacle.Initialize(this);
         m_obstacleList.Add(m_instantiatedObstacle);
     }

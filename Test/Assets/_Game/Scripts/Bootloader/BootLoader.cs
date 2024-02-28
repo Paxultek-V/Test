@@ -250,6 +250,9 @@ public class BootLoader : SerializedMonoBehaviour
             case GameModes.ModeRunner:
                 UIAccess.DisableAll(Enum_UI_Canvas.Canvas_LoseScreen);
                 break;
+            case GameModes.ModeTempo:
+                UIAccess.DisableAll(Enum_UI_Canvas.Canvas_LoseScreen);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }

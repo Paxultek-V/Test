@@ -72,6 +72,5 @@ public class Player_BounceInteraction : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, m_colliderSize);
-        
     }
 }

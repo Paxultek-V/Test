@@ -15,6 +15,9 @@ public class Controller_BounceCombo : MonoBehaviour
         GameActions.onAfterGameModeStarted += ResetCombo;
         Player_BounceInteraction.OnBounceOnNothing += ResetCombo;
         Player_BounceInteraction.OnBounceOnObject += IncreaseCombo;
+
+        PlayerEvents.OnPlayerIncreaseCombo += IncreaseCombo;
+        PlayerEvents.OnPlayerBreakCombo += ResetCombo;
     }
 
     private void OnDisable()
@@ -22,8 +25,12 @@ public class Controller_BounceCombo : MonoBehaviour
         GameActions.onAfterGameModeStarted -= ResetCombo;
         Player_BounceInteraction.OnBounceOnNothing -= ResetCombo;
         Player_BounceInteraction.OnBounceOnObject -= IncreaseCombo;
+        
+        PlayerEvents.OnPlayerIncreaseCombo -= IncreaseCombo;
+        PlayerEvents.OnPlayerBreakCombo -= ResetCombo;
     }
 
+    
     private void ResetCombo()
     {
         m_currentCombo = 0;

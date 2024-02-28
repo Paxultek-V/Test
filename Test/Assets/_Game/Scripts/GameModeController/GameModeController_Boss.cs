@@ -13,21 +13,21 @@ public class GameModeController_Boss : GameModeLoader
     {
         Boss.OnBossDead += OnBossDead;
         Boss.OnBossKillPlayer += OnBossKillPlayer;
-        
-        ModuleEvents.OnAfterStatus +=OnAfterStatus;
+
+        ModuleEvents.OnAfterStatus += OnAfterStatus;
     }
 
     private void OnDisable()
     {
         Boss.OnBossDead -= OnBossDead;
         Boss.OnBossKillPlayer -= OnBossKillPlayer;
-        ModuleEvents.OnAfterStatus -=OnAfterStatus;
+        ModuleEvents.OnAfterStatus -= OnAfterStatus;
     }
 
 
     private void OnAfterStatus(ModuleStatus status)
     {
-        if(status == ModuleStatus.Active)
+        if (status == ModuleStatus.Active)
             UIAccess.Show(Enum_UI_Canvas.Canvas_BossHealth);
     }
 
@@ -37,7 +37,7 @@ public class GameModeController_Boss : GameModeLoader
         return base.IE_Initialize();
     }
 
-    
+
     public override IEnumerator IE_Deinitialize()
     {
         Destroy(m_level);

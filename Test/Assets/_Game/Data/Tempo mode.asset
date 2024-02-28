@@ -21,6 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 1
   gameMode: 2
-  m_levelPrefab: {fileID: 0}
+  m_levelPrefab: {fileID: 4528425609050505528, guid: 3700c24b546954a3d9ef9172d444c03f, type: 3}
