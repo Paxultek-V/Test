@@ -1,12 +1,16 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Vector3 = UnityEngine.Vector3;
 
 public class Player_Movement : ModuleBase
 {
-    [SerializeField] private float m_pixelToWorldMeter = 200f;
-
+    private const float m_pixelToWorldMeter = 200f;
+    
+    [Range(0.1f, 10f)]
+    [SerializeField] private float m_sensitivity = 1f;
+    
     [SerializeField] private float m_baseMovementSpeed = 15f;
 
     [SerializeField] private float m_maxMovementSpeed = 30f;
@@ -122,7 +126,7 @@ public class Player_Movement : ModuleBase
         if (m_controllerDirection == Vector3.zero)
             return;
 
-        m_desiredXPosition = (m_controllerDirection.x / m_pixelToWorldMeter);
+        m_desiredXPosition = (m_controllerDirection.x / (m_pixelToWorldMeter * m_sensitivity));
         
         m_desiredPosition = m_playerStartPosition + Vector3.right * m_desiredXPosition;
         m_desiredPosition.x = Mathf.Clamp(m_desiredXPosition, -m_levelXBounds / 2f, m_levelXBounds / 2f);

@@ -4059,7 +4059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b21b961f3c74cfb8411235a29c536e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ParentCanvas>k__BackingField: 5
+  <ParentCanvas>k__BackingField: 6
   <CanvasGroup>k__BackingField: {fileID: 1841321960}
   <AlwaysVisible>k__BackingField: 0
 --- !u!225 &1841321960

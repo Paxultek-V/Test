@@ -28,7 +28,7 @@ public class GameModeController_Boss : GameModeLoader
     private void OnAfterStatus(ModuleStatus status)
     {
         if (status == ModuleStatus.Active)
-            UIAccess.Show(Enum_UI_Canvas.Canvas_BossHealth);
+            Enum_UI_Canvas.Canvas_BossHealth.Show();
     }
 
     public override IEnumerator IE_Initialize()
